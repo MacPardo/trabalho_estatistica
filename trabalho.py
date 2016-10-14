@@ -46,27 +46,21 @@ def desvio_padrao_sem_intervalo(matriz):
 def coeficiente_variacao_sem_intervalo(matriz):
 	return desvio_padrao_sem_intervalo(matriz) / media_sem_intervalo(matriz) * 100
 
-def media_com_intervalo(matriz):
-	somaxf = 0
-	somaf = 0
+def com_intervalo_to_sem_intervalo(matriz):
 	for i in matriz:
-		somaf += i[2]
-		somaxf += (i[0] + i[1]) / 2 * i[2]
-	return somaxf / somaf
+		i[1] = (i[0] + i[1]) / 2
+		i.pop(0)
+	return matriz
+
+def media_com_intervalo(matriz):
+	matriz = com_intervalo_to_sem_intervalo(matriz)
+	return media_sem_intervalo(matriz)
 
 def desvio_padrao_com_intervalo(matriz):
-	_media = media_sem_intervalo(matriz)
-	soma_q = 0
-	soma_fi = 0
-	for i in matriz:
-		soma_q += (  ((i[0] + i[1])/2) - _media) ** 2 * i[2]
-		print((  ((i[0] + i[1])/2) - _media) ** 2 * i[2])
-		soma_fi += i[2]
-	print(soma_q,soma_fi)
-	return sqrt(soma_q / soma_fi)
+	matriz = com_intervalo_to_sem_intervalo(matriz)
+	return desvio_padrao_sem_intervalo(matriz)
 
-def main():
-	return 0
+def coeficiente_variacao_com_intervalo(matriz):
+	return desvio_padrao_com_intervalo(matriz)/media_com_intervalo(matriz) * 100
 
-if __name__ == '__main__':
-	main()
+matriz = [[0,2,30],[2,4,40],[4,6,10],[6,8,15],[8,10,5]]
