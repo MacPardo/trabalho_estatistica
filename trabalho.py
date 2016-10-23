@@ -1,4 +1,5 @@
 from math import sqrt
+from copy import deepcopy
 
 def media(lista):
 	soma = 0
@@ -18,13 +19,6 @@ def desvio_padrao(lista):
 def coeficiente_variacao(lista):
 	return desvio_padrao(lista) / media(lista) * 100
 
-def print_sem_intervalo(matriz):
-	for i in range(8 * 2 + 3): print('-',end='')
-	print()
-	for i in matriz:
-		print('|' + str(i[0]) + '\t|' + str(i[1]) + '\t|')
-	for i in range(8 * 2 + 3): print('-',end='')
-	print()
 
 def media_sem_intervalo(matriz):
 	total = 0
@@ -47,6 +41,7 @@ def coeficiente_variacao_sem_intervalo(matriz):
 	return desvio_padrao_sem_intervalo(matriz) / media_sem_intervalo(matriz) * 100
 
 def com_intervalo_to_sem_intervalo(matriz):
+	matriz = deepcopy(matriz)
 	for i in matriz:
 		i[1] = (i[0] + i[1]) / 2
 		i.pop(0)
@@ -63,4 +58,16 @@ def desvio_padrao_com_intervalo(matriz):
 def coeficiente_variacao_com_intervalo(matriz):
 	return desvio_padrao_com_intervalo(matriz)/media_com_intervalo(matriz) * 100
 
-matriz = [[0,2,30],[2,4,40],[4,6,10],[6,8,15],[8,10,5]]
+def print_sem_intervalo(matriz):
+	for i in range(8 * 2 + 3): print('-',end='')
+	print()
+	for i in matriz:
+		print('|' + str(i[0]) + '\t|' + str(i[1]) + '\t|')
+	for i in range(8 * 2 + 3): print('-',end='')
+	print()
+
+def print_com_intervalo(matriz):
+	for i in matriz:
+		print(str(i[0]) + '--|' + str(i[1]) + '\t' + str(i[2]))
+
+lols = [[0,2,30],[2,4,40],[4,6,10],[6,8,15],[8,10,5]]
