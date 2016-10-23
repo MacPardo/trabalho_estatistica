@@ -1,5 +1,6 @@
 from math import sqrt
 from copy import deepcopy
+import os
 
 def media(lista):
 	soma = 0
@@ -71,3 +72,44 @@ def print_com_intervalo(matriz):
 		print(str(i[0]) + '--|' + str(i[1]) + '\t' + str(i[2]))
 
 lols = [[0,2,30],[2,4,40],[4,6,10],[6,8,15],[8,10,5]]
+
+
+def clear_screen():
+	os.system('cls' if os.name == 'nt' else 'clear')
+	
+
+def main():
+	while True:
+		clear_screen()
+		print("Você sempre tem que dar um enter depois de inserir qualquer dado.")
+		print("1 - Inserir dados brutos")
+		print("2 - Inserir dados sem intervalo de classe")
+		print("3 - Inserir dados com intervalo de classe")
+		print("4 - Sair")
+
+		choice = int(input())
+		values = []
+
+		if choice == 1:
+			data_quatity = int(input("quantidade de dados a serem inseridos: "))
+			for i in range(data_quatity):
+				print(values)
+				number = int(input('insira: '))
+				values.append(number)
+			values.sort()
+			while True:
+				clear_screen()
+				print(values)
+				print()
+				print('1 - Media')
+				print('2 - Desvio Padrão')
+				print('3 - Coeficiente de Variação')
+				print('4 - Voltar para o menu')
+
+				escolha = int(input())
+
+
+		if choice == 4: break
+
+
+if __name__ == '__main__': main()
