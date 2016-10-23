@@ -107,9 +107,23 @@ def main():
 				print('4 - Voltar para o menu')
 
 				escolha = int(input())
+				
+				if escolha == 1:
+					print('%.2f' % media(values))
+					input('(Enter)')
+
+				elif escolha == 2:
+					print('%.2f' % desvio_padrao(values))
+					input('(Enter)')
+
+				elif escolha == 3:
+					print('%.2f' % coeficiente_variacao(values))
+					input('(Enter)')
+
+				elif escolha == 4: break
 
 
-		if choice == 4: break
+		elif choice == 4: break
 
 
 if __name__ == '__main__': main()
