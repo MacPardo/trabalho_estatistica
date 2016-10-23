@@ -94,7 +94,7 @@ def main():
 			data_quatity = int(input("quantidade de dados a serem inseridos: "))
 			for i in range(data_quatity):
 				print(values)
-				number = int(input('insira: '))
+				number = float(input('insira: '))
 				values.append(number)
 			values.sort()
 			while True:
@@ -122,7 +122,77 @@ def main():
 
 				elif escolha == 4: break
 
+		elif choice == 2:
+			class_quantity = int(input("Quantidade de classes: "))
 
+			for i in range(class_quantity):
+				classe = []
+				classe.append(float(input('classe: ')))
+				classe.append(float(input('frequência da classe: ')))
+				values.append(classe)
+
+			while True:
+				clear_screen()
+				print_sem_intervalo(values)
+				print()
+				print('1 - Media')
+				print('2 - Desvio Padrão')
+				print('3 - Coeficiente de Variação')
+				print('4 - Voltar para o menu')
+
+				escolha = int(input())
+				
+				if escolha == 1:
+					print('%.2f' % media_sem_intervalo(values))
+					input('(Enter)')
+
+				elif escolha == 2:
+					print('%.2f' % desvio_padrao_sem_intervalo(values))
+					input('(Enter)')
+
+				elif escolha == 3:
+					print('%.2f' % coeficiente_variacao_sem_intervalo(values))
+					input('(Enter)')
+
+				elif escolha == 4: break
+
+		elif choice == 3:
+			class_quantity = int(input('Quantidade de classes: '))
+			class_interval = int(input('Intervalo de classe: '))
+			class_bottom = int(input('Menor valor da primeira classe: '))
+
+			for i in range(class_quantity):
+				classe = []
+				classe.append(class_bottom + class_interval * i)
+				classe.append(class_bottom + (class_interval * (i + 1)))
+				classe.append(float(input('frequência da classe %.2f|--%.2f: ' % (classe[0], classe[1]) )))
+				values.append(classe)
+
+			while True:
+				clear_screen()
+				print_com_intervalo(values)
+				print()
+				print('1 - Media')
+				print('2 - Desvio Padrão')
+				print('3 - Coeficiente de Variação')
+				print('4 - Voltar para o menu')
+
+				escolha = int(input())
+				
+				if escolha == 1:
+					print('%.2f' % media_com_intervalo(values))
+					input('(Enter)')
+
+				elif escolha == 2:
+					print('%.2f' % desvio_padrao_com_intervalo(values))
+					input('(Enter)')
+
+				elif escolha == 3:
+					print('%.2f' % coeficiente_variacao_com_intervalo(values))
+					input('(Enter)')
+
+				elif escolha == 4: break
+			
 		elif choice == 4: break
 
 
