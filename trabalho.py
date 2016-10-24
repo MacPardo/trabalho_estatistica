@@ -68,11 +68,10 @@ def print_sem_intervalo(matriz):
 	print()
 
 def print_com_intervalo(matriz):
+	print('--------------')
 	for i in matriz:
-		print(str(i[0]) + '--|' + str(i[1]) + '\t' + str(i[2]))
-
-lols = [[0,2,30],[2,4,40],[4,6,10],[6,8,15],[8,10,5]]
-
+		print(str(i[0]) + '--|' + str(i[1]) + '\t| ' + str(i[2]))
+	print('--------------')
 
 def clear_screen():
 	os.system('cls' if os.name == 'nt' else 'clear')
